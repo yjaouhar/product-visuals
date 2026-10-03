@@ -1,11 +1,23 @@
 const WHATSAPP_LINK = SITE_DATA.whatsapp_link;
 
-document.querySelectorAll(".whatsapp-link").forEach((link) => {
-    link.href = WHATSAPP_LINK;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-});
 
+
+function requestOffer(offerName, price, details) {
+    let message = ''
+    if (offerName && price && details) {
+        message =
+            `Salam, bghit nstafed men l'offre:
+    
+    Offre: ${offerName}
+    Prix: ${price} DH
+    Details: ${details}
+    `;
+    }
+
+    const whatsappUrl = WHATSAPP_LINK + `?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappUrl, "_blank");
+}
 document.getElementById("start-price").textContent = SITE_DATA.start_price
 document.getElementById("growth-price").textContent = SITE_DATA.growth_price
 
