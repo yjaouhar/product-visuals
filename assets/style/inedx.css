@@ -234,6 +234,9 @@ header {
 
 .hero-image {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-image::before {
@@ -245,12 +248,34 @@ header {
     z-index: 0;
 }
 
-.hero-image img {
+.hero-image video {
     position: relative;
     z-index: 1;
-    height: 560px;
+
+    width: 100%;
+    max-width: 520px;
+    height: 600px;
+
+    object-fit: cover;
+    display: block;
+
     border-radius: 26px;
     box-shadow: var(--shadow);
+
+    background: #eaf2ff;
+}
+
+@media (max-width: 768px) {
+    .hero-image video {
+        height: 420px;
+        max-width: 100%;
+        border-radius: 20px;
+    }
+
+    .hero-image::before {
+        inset: 20px -10px -10px 15px;
+        border-radius: 22px;
+    }
 }
 
 /* =========================
@@ -968,4 +993,38 @@ footer p {
 
 .ba-tag-after {
     right: 12px;
+}
+
+.trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.trust-image {
+    width: 72px;
+    height: 100px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.trust-video {
+    width: 72px;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background: #eaf2ff;
+}
+
+.trust-item strong {
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+.trust-item span {
+    font-size: 13px;
+    color: #64748b;
 }
